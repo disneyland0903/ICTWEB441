@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" /> -->
+    <link rel="stylesheet" href="./base.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+    .logo {
+        margin-left: 15px;
+        text-align: center;
+        
+    }
+
+    .function {
+        width: 10%;
+        height: 100%;
+        text-align: center;
+        padding-top: 20px;
+        
+    }
+
+    .wrapper1 {
+        margin: 10px auto;
+        width: 1240px;
+        height: 80px;
+        padding: 15px 0 0 15px;
+        border: 1px solid #000;
+        font-size: 20px;
+        background-color: seashell;
+
+    }
+
+    .wrapper {
+        margin: 10px auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 1%;
+        width: 1240px;
+        height: 300px;
+    }
+
+    #myChart1 {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        
+    }
+    
+    #myChart2 {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    #myChart3 {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        
+    }
+
+    #myChart4 {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+
+    #myChart5 {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+
+    #myChart6 {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+    
+      
+              
+    </style>
+</head>
+<body>
+    <div class="headWrapper">
+      <div class="logo">
+        <span class="material-symbols-outlined">Home</span>
+        <div class="home"><a href="./AppWebsite.html">Dashboard</a></div>
+      </div>
+      <div class="function"><a href="#" class="function-a">Lead management</a></div>
+        <div class="function"><a href="./CustomerManagement.html" class="function-b">Customer management</a></div>
+        <div class="function"><a href="#" class="function-c">Workflow automation</a></div>
+        <div class="function"><a href="#" class="function-d">Auto-quote system</a></div>
+        <div class="function"><a href="#" class="function-e">Invoice tracking</a></div>
+        <div class="function"><a href="#" class="function-f">Project tracking</a></div>
+        <div class="function"><a href="#" class="function-g">Interaction tracking</a></div>
+    </div>
+    <div class="wrapper1">
+        <div>key Performance Indicators</div>
+        <div>Track cases and trends against your company goal</div>
+    </div>
+    <div class="wrapper">
+        <canvas id="myChart1" style="width:50%;max-width:400px;"></canvas>
+        <canvas id="myChart2" style="width:50%;max-width:400px;"></canvas>
+        <canvas id="myChart3" style="width:100%; max-width:400px; "></canvas>
+        <canvas id="myChart4" style="width:100%; max-width:400px; "></canvas>
+        <canvas id="myChart5" style="width:100%; max-width:400px; "></canvas>
+        <canvas id="myChart6" style="width:100%; max-width:400px; "></canvas>
+    </div>
+    
+    <div class="copyright">
+        <p>© Copyright 2023 Customer Records Management (CRM) system  Pty Ltd - ACN 150 789 123</p>
+        <p class="terms"><a href="#">Terms and Conditions</a></p>
+        <p class="privacy"><a href="#">Privacy Policy</a></p>
+    </div>
+    
+
+    
+
+    <script>
+    const ctx1 = document.getElementById('myChart1');
+
+    new Chart(ctx1, {
+      type: 'doughnut',
+      data: {
+        labels: ['New', 'Open', 'Pending', 'Escalated'],
+        datasets: [{
+          label: '# of Votes',
+          data: [50, 40, 20, 5],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    const ctx2 = document.getElementById('myChart2');
+
+      new Chart(ctx2, {
+        type: 'polarArea',
+        data: {
+            labels: ['New', 'Open', 'Pending', 'Escalated'],
+        datasets: [{
+          label: '# of Votes',
+          data: [50, 40, 20, 5],
+          borderWidth: 1
+        }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+
+    const ctx3 = document.getElementById('myChart3');
+
+      new Chart(ctx3, {
+        type: 'bar',
+        data: {
+            labels: ['New', 'Open', 'Pending', 'Escalated'],
+        datasets: [{
+          label: '# of Cases',
+          data: [50, 40, 20, 5],
+          borderWidth: 1
+        }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+
+      const ctx4 = document.getElementById('myChart4');
+
+      new Chart(ctx4, {
+        type: 'line',
+        data: {
+            labels: ['New', 'Open', 'Pending', 'Escalated'],
+        datasets: [{
+          label: '# of Cases',
+          data: [50, 40, 20, 5],
+          borderWidth: 1
+        }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+
+      const ctx5 = document.getElementById('myChart5');
+
+      new Chart(ctx5, {
+        type: 'radar',
+        data: {
+            labels: ['New', 'Open', 'Pending', 'Escalated'],
+        datasets: [{
+          label: '# of Cases',
+          data: [50, 40, 20, 5],
+          borderWidth: 1
+        }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+
+      const ctx6 = document.getElementById('myChart6');
+      new Chart(ctx6, {
+        type: 'scatter',
+        data: {
+            labels: ['New', 'Open', 'Pending', 'Escalated'],
+          datasets: [{
+        type: 'bar',
+        label: 'Bar Dataset',
+        data: [50, 40, 20, 5],
+        borderColor: 'rgb(255, 99, 132)',
+        backgroundColor: 'rgba(255, 99, 132, 0.2)'
+      }, {
+        type: 'line',
+        label: 'Cases',
+        data: [50, 40, 20, 5],
+        fill: false,
+        borderColor: 'rgb(54, 162, 235)'
+      }]
+        }
+      });
+    </script>
+    
+</body>
+</html>
